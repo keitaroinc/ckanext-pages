@@ -12,8 +12,6 @@
   {{ c.page.pager() }}
 {% endblock %}
 
-{% block main_content %}
-   <div class="wrapper no-nav">
-     {{ self.primary_content() }}
-   </div>
+{% block primary_content %}
+  {{ super() }}
 {% endblock %}
