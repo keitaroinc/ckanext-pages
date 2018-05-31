@@ -54,7 +54,7 @@
 {% endif %}
 
 
-<form class="form-horizontal" method="post" action="{{ action_url }}" data-module="basic-form">
+<form method="post" action="{{ action_url }}" data-module="basic-form">
 
   {{ form.input('title', id='field-title', label=_('Title'), placeholder=title_placeholder, value=data.title, error=errors.title, classes=['control-full'], attrs={'data-module': 'slug-preview-target', 'class': 'form-control input-lg'}) }}
 
