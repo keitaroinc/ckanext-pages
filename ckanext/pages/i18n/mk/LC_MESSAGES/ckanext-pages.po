@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ckanext-pages 0.1\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-12-22 18:51+0100\n"
+"POT-Creation-Date: 2018-06-01 15:34+0200\n"
 "PO-Revision-Date: 2018-05-31 09:09+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: mk\n"
@@ -19,69 +19,69 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.3.4\n"
 
-#: ckanext/pages/actions.py:28
+#: ckanext/pages/actions.py:30
 msgid "Page name already exists in database"
 msgstr ""
 
-#: ckanext/pages/actions.py:185 ckanext/pages/actions.py:208
-#: ckanext/pages/actions.py:216 ckanext/pages/actions.py:224
-#: ckanext/pages/actions.py:232 ckanext/pages/actions.py:240
-#: ckanext/pages/actions.py:248 ckanext/pages/actions.py:256
-#: ckanext/pages/actions.py:264 ckanext/pages/actions.py:272
-#: ckanext/pages/actions.py:280 ckanext/pages/actions.py:288
-#: ckanext/pages/actions.py:296
+#: ckanext/pages/actions.py:187 ckanext/pages/actions.py:210
+#: ckanext/pages/actions.py:218 ckanext/pages/actions.py:226
+#: ckanext/pages/actions.py:234 ckanext/pages/actions.py:242
+#: ckanext/pages/actions.py:250 ckanext/pages/actions.py:258
+#: ckanext/pages/actions.py:266 ckanext/pages/actions.py:274
+#: ckanext/pages/actions.py:282 ckanext/pages/actions.py:290
+#: ckanext/pages/actions.py:298
 msgid "Not authorized to see this page"
 msgstr ""
 
-#: ckanext/pages/auth.py:52
+#: ckanext/pages/auth.py:54
 #, python-format
 msgid "User %s not authorized to read this page"
 msgstr ""
 
-#: ckanext/pages/controller.py:22
+#: ckanext/pages/controller.py:24
 msgid "Organization not found"
 msgstr ""
 
-#: ckanext/pages/controller.py:24
+#: ckanext/pages/controller.py:26
 #, python-format
 msgid "Unauthorized to read organization %s"
 msgstr ""
 
-#: ckanext/pages/controller.py:64 ckanext/pages/controller.py:309
+#: ckanext/pages/controller.py:66 ckanext/pages/controller.py:311
 msgid "Page Not Found"
 msgstr ""
 
-#: ckanext/pages/controller.py:66 ckanext/pages/controller.py:311
+#: ckanext/pages/controller.py:68 ckanext/pages/controller.py:313
 msgid "Unauthorized to delete page"
 msgstr ""
 
-#: ckanext/pages/controller.py:68 ckanext/pages/controller.py:123
-#: ckanext/pages/controller.py:313
+#: ckanext/pages/controller.py:70 ckanext/pages/controller.py:125
+#: ckanext/pages/controller.py:315
 msgid "Group not found"
 msgstr ""
 
-#: ckanext/pages/controller.py:125
+#: ckanext/pages/controller.py:127
 #, python-format
 msgid "Unauthorized to read group %s"
 msgstr ""
 
-#: ckanext/pages/controller.py:240
+#: ckanext/pages/controller.py:242
 msgid "ERROR: View not found {view_id}"
 msgstr ""
 
-#: ckanext/pages/controller.py:248
+#: ckanext/pages/controller.py:250
 msgid "Your browser does not support iframes."
 msgstr ""
 
-#: ckanext/pages/controller.py:354
+#: ckanext/pages/controller.py:356
 msgid "Unauthorized to create or edit a page"
 msgstr ""
 
-#: ckanext/pages/controller.py:373
+#: ckanext/pages/controller.py:375
 msgid "Only Posting is availiable"
 msgstr ""
 
-#: ckanext/pages/controller.py:378
+#: ckanext/pages/controller.py:380
 #, python-format
 msgid "Unauthorized to upload file %s"
 msgstr ""
@@ -97,6 +97,7 @@ msgstr ""
 #: ckanext/pages/theme/templates_main/ckanext_pages/organization_page_list.html:9
 #: ckanext/pages/theme/templates_main/ckanext_pages/organization_page_list.html:12
 #: ckanext/pages/theme/templates_main/ckanext_pages/pages_list.html:10
+#: ckanext/pages/theme/templates_main/ckanext_pages/snippets/pages_list.html:15
 #: ckanext/pages/theme/templates_main/header.html:5
 #: ckanext/pages/theme/templates_organization/organization/read_base.html:5
 msgid "Pages"
@@ -105,6 +106,7 @@ msgstr ""
 #: ckanext/pages/theme/templates_main/ckanext_pages/blog.html:34
 #: ckanext/pages/theme/templates_main/ckanext_pages/blog_edit_base.html:9
 #: ckanext/pages/theme/templates_main/ckanext_pages/blog_list.html:10
+#: ckanext/pages/theme/templates_main/ckanext_pages/snippets/pages_list.html:13
 #: ckanext/pages/theme/templates_main/header.html:10
 msgid "Blog"
 msgstr ""
