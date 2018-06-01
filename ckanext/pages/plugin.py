@@ -48,13 +48,15 @@ def build_pages_nav_main(*args):
 
     tk = p.toolkit
     action = getattr(tk, 'c.action', 'request.endpoint')
-    if (action in ('pages_show', 'blog_show')
+    if (action in ('pages_show', 'blog_show', 'news_show')
        and p.toolkit.c.controller == 'ckanext.pages.controller:PagesController'):
         page_name = p.toolkit.c.environ['routes.url'].current().split('/')[-1]
 
     for page in pages_list:
         if page['page_type'] == 'blog':
             link = h.literal('<a href="/blog/%s">%s</a>' % (page['name'], page['title']))
+        elif page['page_type'] == 'news':
+            link = h.literal('<a href="/news/%s">%s</a>' % (page['name'], page['title']))
         else:
             link = h.literal('<a href="/pages/%s">%s</a>' % (page['name'], page['title']))
 
@@ -96,6 +98,22 @@ def get_recent_blog_posts(number=5, exclude=None):
     return new_list
 
 
+def get_recent_news_posts(number=5, exclude=None):
+    news_list = p.toolkit.get_action('ckanext_pages_list')(
+        None, {'order_publish_date': True, 'private': False,
+               'page_type': 'news'}
+    )
+    new_list = []
+    for article in news_list:
+        if exclude and article['name'] == exclude:
+            continue
+        new_list.append(article)
+        if len(new_list) == number:
+            break
+
+    return new_list
+
+
 class PagesPlugin(PagesPluginBase):
     p.implements(p.IConfigurer, inherit=True)
     p.implements(p.ITemplateHelpers, inherit=True)
@@ -130,7 +148,8 @@ class PagesPlugin(PagesPluginBase):
             'build_nav_main': build_pages_nav_main,
             'render_content': render_content,
             'get_wysiwyg_editor': get_wysiwyg_editor,
-            'get_recent_blog_posts': get_recent_blog_posts
+            'get_recent_blog_posts': get_recent_blog_posts,
+            'get_recent_news_posts': get_recent_news_posts,
         }
 
     def after_map(self, map):
@@ -176,6 +195,15 @@ class PagesPlugin(PagesPluginBase):
                     action='blog_index', ckan_icon='file', controller=controller, highlight_actions='blog_edit blog_index blog_show')
         map.connect('blog_show', '/blog{page:/.*|}',
                     action='blog_show', ckan_icon='file', controller=controller, highlight_actions='blog_edit blog_index blog_show')
+
+        map.connect('news_delete', '/news_delete{page:/.*|}',
+                    action='news_delete', ckan_icon='delete', controller=controller)
+        map.connect('news_edit', '/news_edit{page:/.*|}',
+                    action='news_edit', ckan_icon='edit', controller=controller)
+        map.connect('news_index', '/news',
+                    action='news_index', ckan_icon='file', controller=controller, highlight_actions='news_edit news_index news_show')
+        map.connect('news_show', '/news{page:/.*|}',
+                    action='news_show', ckan_icon='file', controller=controller, highlight_actions='news_edit news_index news_show')
         return map
 
 
