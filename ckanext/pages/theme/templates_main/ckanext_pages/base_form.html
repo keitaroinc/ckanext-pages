@@ -64,10 +64,7 @@
 
   <div class="row">
     <div class="col-md-6">
-      {# If the 'date' input type is recongized by a browser, a date picker is provided to the user.
-        The format displayed in the date picker varies and is different from the format used for the returned value (yyyy-mm-dd).
-        The returned value is always in the format of the RFC 3339 standard, as noted in the W3C specifications at: https://www.w3.org/TR/2011/WD-html-markup-20110405/input.date.html #}
-      {{ form.input('publish_date', type="date", id='field-publish_date', label=_('Publish Date'), placeholder=_('2018-01-01'), value=data.publish_date, error=errors.publish_date, classes=[], attrs={'data-module': 'datepicker', 'data-date-format': 'yyyy-mm-dd', 'class': 'form-control'}) }}
+      {{ form.input('publish_date', id='field-publish_date', label=_('Publish Date'), placeholder=_('2018-01-01'), value=data.publish_date, error=errors.publish_date, classes=[], attrs={'data-module': 'datepicker', 'data-date-format': 'yyyy-mm-dd', 'class': 'form-control'}) }}
 
       {% block extra_pages_form %}
       {% endblock extra_pages_form %}
