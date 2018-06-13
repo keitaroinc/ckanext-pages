@@ -1,9 +1,9 @@
 # encoding: utf-8
 
 import logging
-from pylons import config
+from ckan.common import config
+
 import ckan.plugins.toolkit as toolkit
-ignore_missing = toolkit.get_validator('ignore_missing')
 
 import ckan.plugins as p
 import ckan.lib.helpers as h
@@ -20,6 +20,8 @@ else:
         pass
 
 log = logging.getLogger(__name__)
+ignore_missing = toolkit.get_validator('ignore_missing')
+
 
 def build_pages_nav_main(*args):
 
@@ -44,7 +46,9 @@ def build_pages_nav_main(*args):
 
     page_name = ''
 
-    if (p.toolkit.c.action in ('pages_show', 'blog_show')
+    tk = p.toolkit
+    action = getattr(tk, 'c.action', 'request.endpoint')
+    if (action in ('pages_show', 'blog_show')
        and p.toolkit.c.controller == 'ckanext.pages.controller:PagesController'):
         page_name = p.toolkit.c.environ['routes.url'].current().split('/')[-1]
 
