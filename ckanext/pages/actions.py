@@ -29,9 +29,9 @@ def page_name_validator(key, data, errors, context):
         errors[key].append(
             p.toolkit._('Page name already exists in database'))
 
-def not_empty_if_blog(key, data, errors, context):
+def not_empty_if_blog_or_news(key, data, errors, context):
     value = data.get(key)
-    if data.get(('page_type',), '') == 'blog':
+    if data.get(('page_type',), '') == 'blog' or data.get(('page_type',), '') == 'news':
         if value is df.missing or not value:
             errors[key].append('Publish Date Must be supplied')
 
@@ -60,7 +60,7 @@ schema = {
     'user_id': [p.toolkit.get_validator('ignore_missing'), unicode],
     'created': [p.toolkit.get_validator('ignore_missing'),
                 p.toolkit.get_validator('isodate')],
-    'publish_date': [not_empty_if_blog,
+    'publish_date': [not_empty_if_blog_or_news,
                      p.toolkit.get_validator('ignore_missing'),
                      p.toolkit.get_validator('isodate')],
 }
