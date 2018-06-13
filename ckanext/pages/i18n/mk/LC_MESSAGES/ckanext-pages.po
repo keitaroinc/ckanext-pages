@@ -32,12 +32,12 @@ msgstr "Името на страницата веќе постои во база
 #: ckanext/pages/actions.py:282 ckanext/pages/actions.py:290
 #: ckanext/pages/actions.py:298
 msgid "Not authorized to see this page"
-msgstr "Не се овластени да пристапите до оваа страница"
+msgstr "Не сте овластени за пристап до оваа страница"
 
 #: ckanext/pages/auth.py:54
 #, python-format
 msgid "User %s not authorized to read this page"
-msgstr "Корисникот %s не е овластен да ја прочита оваа страница"
+msgstr "Корисникот %s не е овластен да ја чита оваа страница"
 
 #: ckanext/pages/controller.py:24
 msgid "Organization not found"
@@ -46,7 +46,7 @@ msgstr "Организацијата не е пронајдена"
 #: ckanext/pages/controller.py:26
 #, python-format
 msgid "Unauthorized to read organization %s"
-msgstr "Не сте овластени за да ја прочитате организацијата %s"
+msgstr "Не сте овластени да ја читате организацијата %s"
 
 #: ckanext/pages/controller.py:66 ckanext/pages/controller.py:311
 msgid "Page Not Found"
@@ -64,7 +64,7 @@ msgstr "Групата не е пронајдена"
 #: ckanext/pages/controller.py:127
 #, python-format
 msgid "Unauthorized to read group %s"
-msgstr "Не сте овластени за да ја прочитате групата %s"
+msgstr "Не сте овластени да ја читате групата %s"
 
 #: ckanext/pages/controller.py:242
 msgid "ERROR: View not found {view_id}"
@@ -76,7 +76,7 @@ msgstr "Вашиот прелистувач не поддржува внатре
 
 #: ckanext/pages/controller.py:356
 msgid "Unauthorized to create or edit a page"
-msgstr "Не сте овластени за да креирате или уредувате страница"
+msgstr "Не сте овластени да креирате или уредувате страница"
 
 #: ckanext/pages/controller.py:375
 msgid "Only Posting is availiable"
@@ -85,7 +85,7 @@ msgstr "Само Објавување е достапно"
 #: ckanext/pages/controller.py:380
 #, python-format
 msgid "Unauthorized to upload file %s"
-msgstr "Не се овластени да ја прикачите датотеката %s"
+msgstr "Не сте овластени да ја прикачите датотеката %s"
 
 #: ckanext/pages/theme/templates_group/group/read_base.html:5
 #: ckanext/pages/theme/templates_main/ckanext_pages/edit_base.html:3
@@ -126,22 +126,22 @@ msgstr ""
 
 #: ckanext/pages/theme/templates_main/ckanext_pages/base_form.html:40
 msgid "Add Blog Article"
-msgstr "Додадете блог напис"
+msgstr "Додајте блог-напис"
 
 #: ckanext/pages/theme/templates_main/ckanext_pages/base_form.html:42
 msgid "Edit Blog Article"
-msgstr "Уредете блог напис"
+msgstr "Уредете блог-напис"
 
 #: ckanext/pages/theme/templates_main/ckanext_pages/base_form.html:45
 msgid "eg. Blog Article Title"
-msgstr "пр. Наслов на блог напис"
+msgstr "пр. Наслов на блог-напис"
 
 #: ckanext/pages/theme/templates_main/ckanext_pages/base_form.html:48
 #: ckanext/pages/theme/templates_main/ckanext_pages/group_page_list.html:5
 #: ckanext/pages/theme/templates_main/ckanext_pages/organization_page_list.html:5
 #: ckanext/pages/theme/templates_main/ckanext_pages/pages_list.html:5
 msgid "Add page"
-msgstr "Додадете страница"
+msgstr "Додајте страница"
 
 #: ckanext/pages/theme/templates_main/ckanext_pages/base_form.html:50
 #: ckanext/pages/theme/templates_main/ckanext_pages/group_page.html:6
@@ -159,7 +159,7 @@ msgstr "Наслов"
 
 #: ckanext/pages/theme/templates_main/ckanext_pages/base_form.html:63
 msgid "URL"
-msgstr "УРЛ"
+msgstr "URL"
 
 #: ckanext/pages/theme/templates_main/ckanext_pages/base_form.html:65
 msgid "Publish Date"
@@ -207,11 +207,11 @@ msgstr "Моја содржина"
 #: ckanext/pages/theme/templates_main/ckanext_pages/base_form.html:111
 #: ckanext/pages/theme/templates_main/ckanext_pages/confirm_delete.html:15
 msgid "Cancel"
-msgstr "Откажете"
+msgstr "Откажи"
 
 #: ckanext/pages/theme/templates_main/ckanext_pages/base_form.html:112
 msgid "Add"
-msgstr "Додадете"
+msgstr "Додај"
 
 #: ckanext/pages/theme/templates_main/ckanext_pages/base_form.html:117
 msgid "Are you sure you want to delete this Page?"
@@ -219,16 +219,16 @@ msgstr "Дали сте сигурни дека сакате да ја избр�
 
 #: ckanext/pages/theme/templates_main/ckanext_pages/base_form.html:118
 msgid "Delete"
-msgstr "Избришете"
+msgstr "Избриши"
 
 #: ckanext/pages/theme/templates_main/ckanext_pages/base_form.html:122
 msgid "Save"
-msgstr "Зачувајте"
+msgstr "Зачувај"
 
 #: ckanext/pages/theme/templates_main/ckanext_pages/blog.html:8
 #: ckanext/pages/theme/templates_main/ckanext_pages/page.html:8
 msgid "Edit"
-msgstr "Уредете"
+msgstr "Уреди"
 
 #: ckanext/pages/theme/templates_main/ckanext_pages/blog.html:24
 #: ckanext/pages/theme/templates_main/ckanext_pages/group_page.html:18
@@ -245,19 +245,19 @@ msgstr "Повеќе"
 
 #: ckanext/pages/theme/templates_main/ckanext_pages/blog_edit.html:3
 msgid "Edit Article"
-msgstr "Уредете напис"
+msgstr "Уреди напис"
 
 #: ckanext/pages/theme/templates_main/ckanext_pages/blog_edit_base.html:3
 msgid "Blog Articles"
-msgstr "Блог написи"
+msgstr "Блог-написи"
 
 #: ckanext/pages/theme/templates_main/ckanext_pages/blog_edit_base.html:12
 msgid " <p>Add blog articles to CKAN here.</p> "
-msgstr " <p>Додадете блог написи CKAN тука.</p> "
+msgstr " <p>Додајте блог-написи на CKAN тука.</p> "
 
 #: ckanext/pages/theme/templates_main/ckanext_pages/blog_list.html:5
 msgid "Add Article"
-msgstr "Додадете напис"
+msgstr "Додајте напис"
 
 #: ckanext/pages/theme/templates_main/ckanext_pages/confirm_delete.html:3
 #: ckanext/pages/theme/templates_main/ckanext_pages/confirm_delete.html:16
@@ -271,11 +271,11 @@ msgstr ""
 
 #: ckanext/pages/theme/templates_main/ckanext_pages/pages_edit.html:3
 msgid "Edit Page"
-msgstr "Уредете страница"
+msgstr "Уреди страница"
 
 #: ckanext/pages/theme/templates_main/ckanext_pages/snippets/pages_list.html:80
 msgid "There are currently no blog articles here"
-msgstr "Тука во моментот нема блог написи"
+msgstr "Тука во моментот нема блог-написи"
 
 #: ckanext/pages/theme/templates_main/ckanext_pages/snippets/pages_list.html:82
 msgid "There are currently no pages here"
