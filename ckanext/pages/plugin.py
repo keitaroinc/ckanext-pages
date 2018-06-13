@@ -251,10 +251,12 @@ class PagesPlugin(PagesPluginBase):
             'ckanext_group_pages_list': auth.group_pages_list,
        }
 
-class TextBoxView(p.SingletonPlugin):
+class TextBoxView(p.SingletonPlugin, DefaultTranslation):
 
     p.implements(p.IConfigurer, inherit=True)
     p.implements(p.IResourceView, inherit=True)
+    if p.toolkit.check_ckan_version(min_version='2.5.0'):
+        p.implements(p.ITranslation, inherit=True)
 
     def update_config(self, config):
         p.toolkit.add_resource('textbox/theme', 'textbox')
