@@ -23,6 +23,7 @@
     {% else %}
       <p class="empty">{{ _('This page currently has no content') }}</p>
     {% endif %}
+    {{ h.disqus_comments() }}
   </section>
 {% endblock %}
 
