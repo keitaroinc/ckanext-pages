@@ -1,0 +1,334 @@
+# Albanian translations for ckanext-pages.
+# Copyright (C) 2018 ORGANIZATION
+# This file is distributed under the same license as the ckanext-pages
+# project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2018.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: ckanext-pages 0.1\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2018-07-23 14:27+0200\n"
+"PO-Revision-Date: 2018-07-05 12:29+0200\n"
+"Last-Translator: \n"
+"Language: sq\n"
+"Language-Team: \n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+
+#: ckanext/pages/actions.py:30
+msgid "Page name already exists in database"
+msgstr "Emri i faqes tashmë ekziston në bazën e të dhënave"
+
+#: ckanext/pages/actions.py:187 ckanext/pages/actions.py:210
+#: ckanext/pages/actions.py:218 ckanext/pages/actions.py:226
+#: ckanext/pages/actions.py:234 ckanext/pages/actions.py:242
+#: ckanext/pages/actions.py:250 ckanext/pages/actions.py:258
+#: ckanext/pages/actions.py:266 ckanext/pages/actions.py:274
+#: ckanext/pages/actions.py:282 ckanext/pages/actions.py:290
+#: ckanext/pages/actions.py:298
+msgid "Not authorized to see this page"
+msgstr "Nuk jeni i autorizuar për të parë këtë faqe"
+
+#: ckanext/pages/auth.py:54
+#, python-format
+msgid "User %s not authorized to read this page"
+msgstr "Përdoruesi %s nuk është i autorizuar të lexoj këtë faqe"
+
+#: ckanext/pages/controller.py:24
+msgid "Organization not found"
+msgstr "Organizata nuk u gjet"
+
+#: ckanext/pages/controller.py:26
+#, python-format
+msgid "Unauthorized to read organization %s"
+msgstr "I paautorizuar për të lexuar organizatën %s"
+
+#: ckanext/pages/controller.py:66 ckanext/pages/controller.py:313
+msgid "Page Not Found"
+msgstr "Faqja nuk u gjet"
+
+#: ckanext/pages/controller.py:68 ckanext/pages/controller.py:315
+msgid "Unauthorized to delete page"
+msgstr "Nuk jeni i autorizuar për të fshirë faqe"
+
+#: ckanext/pages/controller.py:70 ckanext/pages/controller.py:125
+#: ckanext/pages/controller.py:317
+msgid "Group not found"
+msgstr "Grupi nuk u gjet"
+
+#: ckanext/pages/controller.py:127
+#, python-format
+msgid "Unauthorized to read group %s"
+msgstr "Të paautorizuar të lexoni grupin %s"
+
+#: ckanext/pages/controller.py:242
+msgid "ERROR: View not found {view_id}"
+msgstr "GABIM: Shiko nuk u gjet {view_id}"
+
+#: ckanext/pages/controller.py:250
+msgid "Your browser does not support iframes."
+msgstr "Shfletuesi juaj nuk i përkrah iframes."
+
+#: ckanext/pages/controller.py:358
+msgid "Unauthorized to create or edit a page"
+msgstr "I paautorizuar për të krijuar ose redaktuar një faqe"
+
+#: ckanext/pages/controller.py:377
+msgid "Only Posting is availiable"
+msgstr "Postimi i vetëm në dispozicion"
+
+#: ckanext/pages/controller.py:382
+#, python-format
+msgid "Unauthorized to upload file %s"
+msgstr "Ngarkimi i paautorizuar i një skedari %s"
+
+#: ckanext/pages/theme/templates_group/group/read_base.html:5
+#: ckanext/pages/theme/templates_main/ckanext_pages/edit_base.html:3
+#: ckanext/pages/theme/templates_main/ckanext_pages/group_page.html:3
+#: ckanext/pages/theme/templates_main/ckanext_pages/group_page_edit.html:3
+#: ckanext/pages/theme/templates_main/ckanext_pages/group_page_list.html:9
+#: ckanext/pages/theme/templates_main/ckanext_pages/group_page_list.html:12
+#: ckanext/pages/theme/templates_main/ckanext_pages/organization_page.html:3
+#: ckanext/pages/theme/templates_main/ckanext_pages/organization_page_edit.html:3
+#: ckanext/pages/theme/templates_main/ckanext_pages/organization_page_list.html:9
+#: ckanext/pages/theme/templates_main/ckanext_pages/organization_page_list.html:12
+#: ckanext/pages/theme/templates_main/ckanext_pages/pages_list.html:10
+#: ckanext/pages/theme/templates_main/ckanext_pages/snippets/pages_list.html:17
+#: ckanext/pages/theme/templates_main/header.html:5
+#: ckanext/pages/theme/templates_organization/organization/read_base.html:5
+msgid "Pages"
+msgstr "Faqet"
+
+#: ckanext/pages/theme/templates_main/ckanext_pages/news.html:35
+#: ckanext/pages/theme/templates_main/ckanext_pages/news_edit_base.html:9
+#: ckanext/pages/theme/templates_main/ckanext_pages/news_list.html:10
+#: ckanext/pages/theme/templates_main/header.html:10
+msgid "News"
+msgstr "Lajme"
+
+#: ckanext/pages/theme/templates_main/ckanext_pages/blog.html:35
+#: ckanext/pages/theme/templates_main/ckanext_pages/blog_edit_base.html:9
+#: ckanext/pages/theme/templates_main/ckanext_pages/blog_list.html:10
+#: ckanext/pages/theme/templates_main/header.html:15
+msgid "Blog"
+msgstr "Blog"
+
+#: ckanext/pages/theme/templates_main/ckanext_pages/base.html:15
+msgid "What are Pages?"
+msgstr "Cilat janë Faqet?"
+
+#: ckanext/pages/theme/templates_main/ckanext_pages/base.html:18
+msgid ""
+" <p>Pages are are simple way to add extra pages to your ckan instance. "
+"You can assign an order to them.</p> "
+msgstr ""
+" <p>Faqet janë të thjeshta për të shtuar faqe shtesë në instancën tuaj "
+"ckan. Ju mund të caktoni një urdhër për ta.</p> "
+
+#: ckanext/pages/theme/templates_main/ckanext_pages/base_form.html:48
+msgid "Add Blog Article"
+msgstr "Shto një artikull në blog"
+
+#: ckanext/pages/theme/templates_main/ckanext_pages/base_form.html:50
+msgid "Edit Blog Article"
+msgstr "Ndrysho artikullin e blogut"
+
+#: ckanext/pages/theme/templates_main/ckanext_pages/base_form.html:53
+msgid "eg. Blog Article Title"
+msgstr "psh. Titulli i artikullit të blogut"
+
+#: ckanext/pages/theme/templates_main/ckanext_pages/base_form.html:56
+#, fuzzy
+msgid "Add News Article"
+msgstr "Shtoni artikullin"
+
+#: ckanext/pages/theme/templates_main/ckanext_pages/base_form.html:58
+#, fuzzy
+msgid "Edit News Article"
+msgstr "Redakto artikullin"
+
+#: ckanext/pages/theme/templates_main/ckanext_pages/base_form.html:61
+#, fuzzy
+msgid "eg. News Article Title"
+msgstr "psh. Titulli i artikullit të blogut"
+
+#: ckanext/pages/theme/templates_main/ckanext_pages/base_form.html:64
+#: ckanext/pages/theme/templates_main/ckanext_pages/group_page_list.html:5
+#: ckanext/pages/theme/templates_main/ckanext_pages/organization_page_list.html:5
+#: ckanext/pages/theme/templates_main/ckanext_pages/pages_list.html:5
+msgid "Add page"
+msgstr "Shto faqe"
+
+#: ckanext/pages/theme/templates_main/ckanext_pages/base_form.html:66
+#: ckanext/pages/theme/templates_main/ckanext_pages/group_page.html:6
+#: ckanext/pages/theme/templates_main/ckanext_pages/organization_page.html:6
+msgid "Edit page"
+msgstr "Redakto faqen"
+
+#: ckanext/pages/theme/templates_main/ckanext_pages/base_form.html:69
+msgid "eg. Page Title"
+msgstr "psh. Titulli i faqes"
+
+#: ckanext/pages/theme/templates_main/ckanext_pages/base_form.html:75
+msgid "Title"
+msgstr "Titulli"
+
+#: ckanext/pages/theme/templates_main/ckanext_pages/base_form.html:79
+msgid "URL"
+msgstr "URL"
+
+#: ckanext/pages/theme/templates_main/ckanext_pages/base_form.html:83
+msgid "Publish Date"
+msgstr "Data e publikimit"
+
+#: ckanext/pages/theme/templates_main/ckanext_pages/base_form.html:83
+#, fuzzy
+msgid "2018-01-01"
+msgstr "01-01-2005"
+
+#: ckanext/pages/theme/templates_main/ckanext_pages/base_form.html:91
+msgid "Visibility"
+msgstr "Dukshmëria"
+
+#: ckanext/pages/theme/templates_main/ckanext_pages/base_form.html:94
+msgid "Private"
+msgstr "Private"
+
+#: ckanext/pages/theme/templates_main/ckanext_pages/base_form.html:94
+msgid "Public"
+msgstr "Publiku"
+
+#: ckanext/pages/theme/templates_main/ckanext_pages/base_form.html:103
+msgid "Menu Order"
+msgstr "Rendi i menysë"
+
+#: ckanext/pages/theme/templates_main/ckanext_pages/base_form.html:106
+msgid "Not in Menu"
+msgstr "Nnuk është në meny"
+
+#: ckanext/pages/theme/templates_main/ckanext_pages/base_form.html:118
+#: ckanext/pages/theme/templates_main/ckanext_pages/base_form.html:122
+#: ckanext/pages/theme/templates_main/ckanext_pages/base_form.html:126
+msgid "Content"
+msgstr "Përmbajtje"
+
+#: ckanext/pages/theme/templates_main/ckanext_pages/base_form.html:118
+#: ckanext/pages/theme/templates_main/ckanext_pages/base_form.html:126
+msgid "Enter content here"
+msgstr "Shkruani përmbajtjen këtu"
+
+#: ckanext/pages/theme/templates_main/ckanext_pages/base_form.html:123
+msgid "My content"
+msgstr "Përmbajtja ime"
+
+#: ckanext/pages/theme/templates_main/ckanext_pages/base_form.html:131
+#: ckanext/pages/theme/templates_main/ckanext_pages/confirm_delete.html:15
+msgid "Cancel"
+msgstr "Anuloj"
+
+#: ckanext/pages/theme/templates_main/ckanext_pages/base_form.html:132
+msgid "Add"
+msgstr "Shto"
+
+#: ckanext/pages/theme/templates_main/ckanext_pages/base_form.html:138
+#, fuzzy
+msgid "Are you sure you want to delete this Article?"
+msgstr "A jeni i sigurtë për fshirjën këtë faqe?"
+
+#: ckanext/pages/theme/templates_main/ckanext_pages/base_form.html:140
+msgid "Are you sure you want to delete this Page?"
+msgstr "A jeni i sigurtë për fshirjën këtë faqe?"
+
+#: ckanext/pages/theme/templates_main/ckanext_pages/base_form.html:143
+msgid "Delete"
+msgstr "Fshij"
+
+#: ckanext/pages/theme/templates_main/ckanext_pages/base_form.html:147
+msgid "Save"
+msgstr "Ruaj"
+
+#: ckanext/pages/theme/templates_main/ckanext_pages/blog.html:8
+#: ckanext/pages/theme/templates_main/ckanext_pages/news.html:8
+#: ckanext/pages/theme/templates_main/ckanext_pages/page.html:8
+msgid "Edit"
+msgstr "Redakto"
+
+#: ckanext/pages/theme/templates_main/ckanext_pages/blog.html:24
+#: ckanext/pages/theme/templates_main/ckanext_pages/group_page.html:18
+#: ckanext/pages/theme/templates_main/ckanext_pages/organization_page.html:18
+#: ckanext/pages/theme/templates_main/ckanext_pages/page.html:23
+#: ckanext/pages/theme/templates_main/ckanext_pages/snippets/pages_list.html:58
+#: ckanext/pages/theme/templates_main/ckanext_pages/snippets/pages_list.html:82
+msgid "This page currently has no content"
+msgstr "Kjo faqe aktualisht nuk ka përmbajtje"
+
+#: ckanext/pages/theme/templates_main/ckanext_pages/blog.html:52
+#: ckanext/pages/theme/templates_main/ckanext_pages/news.html:52
+msgid "More"
+msgstr "Më shum"
+
+#: ckanext/pages/theme/templates_main/ckanext_pages/blog_edit.html:3
+#: ckanext/pages/theme/templates_main/ckanext_pages/news_edit.html:3
+msgid "Edit Article"
+msgstr "Redakto artikullin"
+
+#: ckanext/pages/theme/templates_main/ckanext_pages/blog_edit_base.html:3
+msgid "Blog Articles"
+msgstr "Artikuj Blog"
+
+#: ckanext/pages/theme/templates_main/ckanext_pages/blog_edit_base.html:12
+msgid " <p>Add blog articles to CKAN here.</p> "
+msgstr " <p>Shtoni artikuj blogesh tek CKAN këtu</p>"
+
+#: ckanext/pages/theme/templates_main/ckanext_pages/blog_list.html:5
+#: ckanext/pages/theme/templates_main/ckanext_pages/news_list.html:5
+msgid "Add Article"
+msgstr "Shtoni artikullin"
+
+#: ckanext/pages/theme/templates_main/ckanext_pages/confirm_delete.html:3
+#: ckanext/pages/theme/templates_main/ckanext_pages/confirm_delete.html:16
+msgid "Confirm Delete"
+msgstr "Konfirmo fshirjen"
+
+#: ckanext/pages/theme/templates_main/ckanext_pages/confirm_delete.html:11
+msgid "Are you sure you want to delete page - {name}?"
+msgstr "A jeni i sigurtë për fshirjën këtë faqe - {name}?"
+
+#: ckanext/pages/theme/templates_main/ckanext_pages/news.html:24
+#: ckanext/pages/theme/templates_main/ckanext_pages/snippets/pages_list.html:56
+#: ckanext/pages/theme/templates_main/ckanext_pages/snippets/pages_list.html:80
+#, fuzzy
+msgid "This article currently has no content"
+msgstr "Kjo faqe aktualisht nuk ka përmbajtje"
+
+#: ckanext/pages/theme/templates_main/ckanext_pages/news_edit_base.html:3
+#, fuzzy
+msgid "News Articles"
+msgstr "Artikuj Blog"
+
+#: ckanext/pages/theme/templates_main/ckanext_pages/news_edit_base.html:12
+#, fuzzy
+msgid " <p>Add news articles to CKAN here.</p> "
+msgstr " <p>Shtoni artikuj blogesh tek CKAN këtu</p>"
+
+#: ckanext/pages/theme/templates_main/ckanext_pages/pages_edit.html:3
+msgid "Edit Page"
+msgstr "Redakto faqen"
+
+#: ckanext/pages/theme/templates_main/ckanext_pages/snippets/pages_list.html:92
+msgid "There are currently no blog articles here"
+msgstr "Aktualisht nuk ka artikuj blogu këtu"
+
+#: ckanext/pages/theme/templates_main/ckanext_pages/snippets/pages_list.html:94
+#, fuzzy
+msgid "There are currently no news articles here"
+msgstr "Aktualisht nuk ka artikuj blogu këtu"
+
+#: ckanext/pages/theme/templates_main/ckanext_pages/snippets/pages_list.html:96
+msgid "There are currently no pages here"
+msgstr "Aktualisht nuk ka faqe këtu"
+
