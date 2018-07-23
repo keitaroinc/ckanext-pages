@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ckanext-pages 0.1\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-06-14 13:12+0200\n"
+"POT-Creation-Date: 2018-07-23 14:27+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -101,14 +101,14 @@ msgstr ""
 msgid "Pages"
 msgstr ""
 
-#: ckanext/pages/theme/templates_main/ckanext_pages/news.html:34
+#: ckanext/pages/theme/templates_main/ckanext_pages/news.html:35
 #: ckanext/pages/theme/templates_main/ckanext_pages/news_edit_base.html:9
 #: ckanext/pages/theme/templates_main/ckanext_pages/news_list.html:10
 #: ckanext/pages/theme/templates_main/header.html:10
 msgid "News"
 msgstr ""
 
-#: ckanext/pages/theme/templates_main/ckanext_pages/blog.html:34
+#: ckanext/pages/theme/templates_main/ckanext_pages/blog.html:35
 #: ckanext/pages/theme/templates_main/ckanext_pages/blog_edit_base.html:9
 #: ckanext/pages/theme/templates_main/ckanext_pages/blog_list.html:10
 #: ckanext/pages/theme/templates_main/header.html:15
@@ -257,8 +257,8 @@ msgstr ""
 msgid "This page currently has no content"
 msgstr ""
 
-#: ckanext/pages/theme/templates_main/ckanext_pages/blog.html:51
-#: ckanext/pages/theme/templates_main/ckanext_pages/news.html:51
+#: ckanext/pages/theme/templates_main/ckanext_pages/blog.html:52
+#: ckanext/pages/theme/templates_main/ckanext_pages/news.html:52
 msgid "More"
 msgstr ""
 

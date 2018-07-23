@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ckanext-pages 0.1\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-06-14 13:12+0200\n"
+"POT-Creation-Date: 2018-07-23 14:27+0200\n"
 "PO-Revision-Date: 2018-06-09 00:37+0200\n"
 "Last-Translator: \n"
 "Language: mk\n"
@@ -103,14 +103,14 @@ msgstr "Не сте овластени да ја прикачите датоте
 msgid "Pages"
 msgstr "Страници"
 
-#: ckanext/pages/theme/templates_main/ckanext_pages/news.html:34
+#: ckanext/pages/theme/templates_main/ckanext_pages/news.html:35
 #: ckanext/pages/theme/templates_main/ckanext_pages/news_edit_base.html:9
 #: ckanext/pages/theme/templates_main/ckanext_pages/news_list.html:10
 #: ckanext/pages/theme/templates_main/header.html:10
 msgid "News"
 msgstr "Новости"
 
-#: ckanext/pages/theme/templates_main/ckanext_pages/blog.html:34
+#: ckanext/pages/theme/templates_main/ckanext_pages/blog.html:35
 #: ckanext/pages/theme/templates_main/ckanext_pages/blog_edit_base.html:9
 #: ckanext/pages/theme/templates_main/ckanext_pages/blog_list.html:10
 #: ckanext/pages/theme/templates_main/header.html:15
@@ -266,8 +266,8 @@ msgstr "Уреди"
 msgid "This page currently has no content"
 msgstr "Оваа страница моментално нема содржина"
 
-#: ckanext/pages/theme/templates_main/ckanext_pages/blog.html:51
-#: ckanext/pages/theme/templates_main/ckanext_pages/news.html:51
+#: ckanext/pages/theme/templates_main/ckanext_pages/blog.html:52
+#: ckanext/pages/theme/templates_main/ckanext_pages/news.html:52
 msgid "More"
 msgstr "Повеќе"
 
