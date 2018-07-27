@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ckanext-pages 0.1\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-07-23 14:27+0200\n"
+"POT-Creation-Date: 2018-07-27 12:26+0200\n"
 "PO-Revision-Date: 2018-07-05 12:29+0200\n"
 "Last-Translator: \n"
 "Language: sq\n"
@@ -106,6 +106,7 @@ msgstr "Faqet"
 #: ckanext/pages/theme/templates_main/ckanext_pages/news.html:35
 #: ckanext/pages/theme/templates_main/ckanext_pages/news_edit_base.html:9
 #: ckanext/pages/theme/templates_main/ckanext_pages/news_list.html:10
+#: ckanext/pages/theme/templates_main/ckanext_pages/snippets/pages_list.html:15
 #: ckanext/pages/theme/templates_main/header.html:10
 msgid "News"
 msgstr "Lajme"
@@ -113,6 +114,7 @@ msgstr "Lajme"
 #: ckanext/pages/theme/templates_main/ckanext_pages/blog.html:35
 #: ckanext/pages/theme/templates_main/ckanext_pages/blog_edit_base.html:9
 #: ckanext/pages/theme/templates_main/ckanext_pages/blog_list.html:10
+#: ckanext/pages/theme/templates_main/ckanext_pages/snippets/pages_list.html:13
 #: ckanext/pages/theme/templates_main/header.html:15
 msgid "Blog"
 msgstr "Blog"
@@ -142,17 +144,14 @@ msgid "eg. Blog Article Title"
 msgstr "psh. Titulli i artikullit të blogut"
 
 #: ckanext/pages/theme/templates_main/ckanext_pages/base_form.html:56
-#, fuzzy
 msgid "Add News Article"
 msgstr "Shtoni artikullin"
 
 #: ckanext/pages/theme/templates_main/ckanext_pages/base_form.html:58
-#, fuzzy
 msgid "Edit News Article"
 msgstr "Redakto artikullin"
 
 #: ckanext/pages/theme/templates_main/ckanext_pages/base_form.html:61
-#, fuzzy
 msgid "eg. News Article Title"
 msgstr "psh. Titulli i artikullit të blogut"
 
@@ -185,8 +184,6 @@ msgstr "URL"
 msgid "Publish Date"
 msgstr "Data e publikimit"
 
-#: ckanext/pages/theme/templates_main/ckanext_pages/base_form.html:83
-#, fuzzy
 msgid "2018-01-01"
 msgstr "01-01-2005"
 
@@ -235,7 +232,6 @@ msgid "Add"
 msgstr "Shto"
 
 #: ckanext/pages/theme/templates_main/ckanext_pages/base_form.html:138
-#, fuzzy
 msgid "Are you sure you want to delete this Article?"
 msgstr "A jeni i sigurtë për fshirjën këtë faqe?"
 
@@ -301,17 +297,14 @@ msgstr "A jeni i sigurtë për fshirjën këtë faqe - {name}?"
 #: ckanext/pages/theme/templates_main/ckanext_pages/news.html:24
 #: ckanext/pages/theme/templates_main/ckanext_pages/snippets/pages_list.html:56
 #: ckanext/pages/theme/templates_main/ckanext_pages/snippets/pages_list.html:80
-#, fuzzy
 msgid "This article currently has no content"
 msgstr "Kjo faqe aktualisht nuk ka përmbajtje"
 
 #: ckanext/pages/theme/templates_main/ckanext_pages/news_edit_base.html:3
-#, fuzzy
 msgid "News Articles"
 msgstr "Artikuj Blog"
 
 #: ckanext/pages/theme/templates_main/ckanext_pages/news_edit_base.html:12
-#, fuzzy
 msgid " <p>Add news articles to CKAN here.</p> "
 msgstr " <p>Shtoni artikuj blogesh tek CKAN këtu</p>"
 
@@ -324,7 +317,6 @@ msgid "There are currently no blog articles here"
 msgstr "Aktualisht nuk ka artikuj blogu këtu"
 
 #: ckanext/pages/theme/templates_main/ckanext_pages/snippets/pages_list.html:94
-#, fuzzy
 msgid "There are currently no news articles here"
 msgstr "Aktualisht nuk ka artikuj blogu këtu"
 
