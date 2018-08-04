@@ -9,7 +9,7 @@ this.ckan.module('datepicker', function (jQuery, _) {
       var date = new Date();
       var now = new Date(date.getFullYear(), date.getMonth(), date.getDate(), 0, 0, 0, 0);
       var editor = $(this.el).datepicker({
-        language: this.options.locale,
+        language: $('html').attr('lang'),
         format: 'dd-mm-yyyy',
         endDate: new Date(),
         weekStart: 1,
