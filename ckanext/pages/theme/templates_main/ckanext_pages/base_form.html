@@ -64,7 +64,7 @@
 
   <div class="row">
     <div class="col-md-6">
-      {{ form.input('publish_date', id='field-publish_date', label=_('Publish Date'), placeholder=_('31-07-2018'), value=h.render_datetime(data.publish_date, date_format='%d-%m-%Y'), error=errors.publish_date, classes=[], attrs={'data-module': 'datepicker', 'data-module-locale': h.lang(), 'class': 'form-control'}) }}
+      {{ form.input('publish_date', id='field-publish_date', label=_('Publish Date'), placeholder=_('31-07-2018'), value=h.render_datetime(data.publish_date, date_format='%d-%m-%Y'), error=errors.publish_date, classes=[], attrs={'data-module': 'datepicker', 'class': 'form-control'}) }}
 
       {% block extra_pages_form %}
       {% endblock extra_pages_form %}
