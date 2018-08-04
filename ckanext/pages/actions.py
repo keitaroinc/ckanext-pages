@@ -45,7 +45,11 @@ class HTMLFirstImage(HTMLParser):
             self.first_image = dict(attrs)['src']
 
 def convert_date_to_iso(key, data, errors, context):
-    data[key] = datetime.datetime.strptime(data[key], '%d-%m-%Y').strftime('%Y-%m-%d')
+    if data[key]:
+        try:
+            data[key] = datetime.datetime.strptime(data[key], '%d-%m-%Y').strftime('%Y-%m-%d')
+        except:
+            pass
 
 schema = {
     'id': [p.toolkit.get_validator('ignore_empty'), unicode],
