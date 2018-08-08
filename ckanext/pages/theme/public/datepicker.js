@@ -9,9 +9,18 @@ this.ckan.module('datepicker', function (jQuery, _) {
       var date = new Date();
       var now = new Date(date.getFullYear(), date.getMonth(), date.getDate(), 0, 0, 0, 0);
       var editor = $(this.el).datepicker({
-        onRender: function(date) {
-          // Don't allow future dates to be selected from the datepicker component on the front-end.
-          return date.valueOf() > now ? 'disabled' : '';
+        language: $('html').attr('lang'),
+        format: 'dd-mm-yyyy',
+        endDate: new Date(),
+        weekStart: 1,
+        autoclose: true,
+        format: {
+            toDisplay: function (date, format, language) {
+                return moment(date).format('DD-MM-YYYY');
+            },
+            toValue: function (date, format, language) {
+                return moment((new Date(date)).toISOString()).format('DD-MM-YYYY');
+            }
         }
       });
     }
