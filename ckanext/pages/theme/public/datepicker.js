@@ -23,6 +23,9 @@ this.ckan.module('datepicker', function (jQuery, _) {
             }
         }
       });
+      if ( $(this.el).attr('datepicker-show-direction') ) {
+        editor.datepicker('option', 'showOptions', {"direction": $(this.el).attr('datepicker-show-direction') })
+      }
     }
   }
 });
