@@ -21,11 +21,9 @@ this.ckan.module('datepicker', function (jQuery, _) {
             toValue: function (date, format, language) {
                 return moment((new Date(date)).toISOString()).format('DD-MM-YYYY');
             }
-        }
+        },
+        orientation: $(this.el).attr('datepicker-show-direction') || 'auto'
       });
-      if ( $(this.el).attr('datepicker-show-direction') ) {
-        editor.datepicker('option', 'showOptions', {"direction": $(this.el).attr('datepicker-show-direction') })
-      }
     }
   }
 });
