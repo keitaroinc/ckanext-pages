@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ckanext-pages 0.1\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-07-27 12:26+0200\n"
+"POT-Creation-Date: 2018-08-13 15:50+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,13 +21,13 @@ msgstr ""
 msgid "Page name already exists in database"
 msgstr ""
 
-#: ckanext/pages/actions.py:187 ckanext/pages/actions.py:210
-#: ckanext/pages/actions.py:218 ckanext/pages/actions.py:226
-#: ckanext/pages/actions.py:234 ckanext/pages/actions.py:242
-#: ckanext/pages/actions.py:250 ckanext/pages/actions.py:258
-#: ckanext/pages/actions.py:266 ckanext/pages/actions.py:274
-#: ckanext/pages/actions.py:282 ckanext/pages/actions.py:290
-#: ckanext/pages/actions.py:298
+#: ckanext/pages/actions.py:195 ckanext/pages/actions.py:218
+#: ckanext/pages/actions.py:226 ckanext/pages/actions.py:234
+#: ckanext/pages/actions.py:242 ckanext/pages/actions.py:250
+#: ckanext/pages/actions.py:258 ckanext/pages/actions.py:266
+#: ckanext/pages/actions.py:274 ckanext/pages/actions.py:282
+#: ckanext/pages/actions.py:290 ckanext/pages/actions.py:298
+#: ckanext/pages/actions.py:306
 msgid "Not authorized to see this page"
 msgstr ""
 
@@ -181,7 +181,7 @@ msgid "Publish Date"
 msgstr ""
 
 #: ckanext/pages/theme/templates_main/ckanext_pages/base_form.html:83
-msgid "2018-01-01"
+msgid "31-07-2018"
 msgstr ""
 
 #: ckanext/pages/theme/templates_main/ckanext_pages/base_form.html:91
