@@ -109,6 +109,7 @@ class PagesPlugin(PagesPluginBase):
     p.implements(p.IRoutes, inherit=True)
     p.implements(p.IActions, inherit=True)
     p.implements(p.IAuthFunctions, inherit=True)
+    p.implements(p.IValidators)
 
 
     def update_config(self, config):
@@ -229,8 +230,12 @@ class PagesPlugin(PagesPluginBase):
             'ckanext_group_pages_list': auth.group_pages_list,
        }
 
-class TextBoxView(p.SingletonPlugin):
+    def get_validators(self):
+        return {
+            'convert_date_to_iso': actions.convert_date_to_iso
+        }
 
+class TextBoxView(p.SingletonPlugin, DefaultTranslation):
     p.implements(p.IConfigurer, inherit=True)
     p.implements(p.IResourceView, inherit=True)
 
