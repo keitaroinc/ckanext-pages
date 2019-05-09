@@ -31,12 +31,10 @@
                 {% endfor %}
             </div>
             {% block blog_archive_button %}
-            <a class="btn-view-all" href="{{ h.url_for(action='blog_index', controller='ckanext.pages.controller:PagesController') }}">
-                <button class="btn btn-primary view-all" type="button">
-                  {% block blog_archive_button_text %}
+            <a class="btn btn-large btn-primary btn-view-all" href="{{ h.url_for(action='blog_index', controller='ckanext.pages.controller:PagesController') }}">
+                {% block blog_archive_button_text %}
                   {{_("View All")}}
-                  {% endblock %}
-                </button>
+                {% endblock %}
             </a>
             {% endblock %}
         </div>
