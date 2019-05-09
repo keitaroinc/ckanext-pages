@@ -1,0 +1,47 @@
+{% resource 'pages-theme/styles/pages.css' %}
+{% ckan_extends %}
+
+{% block primary_content %}
+{{ super() }}
+
+    {% block blogs_wrapper %}
+    {% set blogs = h.get_recent_blog_posts(4) %}
+
+    {# g.homepage_blogs is returned as String not Boolean! #}
+    {% if g.homepage_blogs == 'True' and blogs %}
+    <div class="blogs">
+        <div class="container">
+            {% block blogs_heading %}
+            <h2 class="h2">{{_("Insights")}}</h2>
+            {% endblock %}
+            <div class="row">
+                {% for item in blogs %}
+                    <div class="col-md-3 col-sm-4 col-xs-12">
+                        <div class="box">
+                            {% if item.image %}
+                              <img src="{{ item.image }}" alt="{{ item.title }}" class="media-image item-image">
+                            {% endif %}
+                            <div class="item-body">
+                                <h3 class="title media-heading">{{ item.title }}</h3>
+                                <p class="description">{{ item.content|striptags|truncate(300) }}</p>
+                            </div>
+                        </div>
+                        <a class="media-view" href="{{ h.url_for(controller='ckanext.pages.controller:PagesController', action='blog_show', page='/' + item.name) }}"></a>
+                    </div>
+                {% endfor %}
+            </div>
+            {% block blog_archive_button %}
+            <a class="btn-view-all" href="{{ h.url_for(action='blog_index', controller='ckanext.pages.controller:PagesController') }}">
+                <button class="btn btn-primary view-all" type="button">
+                  {% block blog_archive_button_text %}
+                  {{_("View All")}}
+                  {% endblock %}
+                </button>
+            </a>
+            {% endblock %}
+        </div>
+    </div>
+    {% endif %}
+    {% endblock %}
+
+{% endblock %}

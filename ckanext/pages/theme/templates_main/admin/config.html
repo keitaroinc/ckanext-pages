@@ -1,0 +1,16 @@
+{% ckan_extends %}
+
+{% import 'macros/form.html' as form %}
+
+{% block admin_form %}
+  {{ super() }}
+
+  {# data.homepage_blogs is returned as String not Boolean! #}
+  {% if data.homepage_blogs == 'True' %}
+    {% set checked = true %}
+  {% else %}
+    {% set checked = false %}
+  {% endif %}
+
+  {{ form.checkbox('homepage_blogs', 'field_homepage_blogs', _('Show recent blog posts on Home page'), value=data.homepage_blogs, checked=checked) }}
+{% endblock %}

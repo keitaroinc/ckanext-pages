@@ -44,6 +44,13 @@ class HTMLFirstImage(HTMLParser):
         if tag == 'img' and not self.first_image:
             self.first_image = dict(attrs)['src']
 
+def convert_date_to_iso(key, data, errors, context):
+    if data[key]:
+        try:
+            data[key] = datetime.datetime.strptime(data[key], '%d-%m-%Y').strftime('%Y-%m-%d')
+        except:
+            pass
+
 schema = {
     'id': [p.toolkit.get_validator('ignore_empty'), unicode],
     'title': [p.toolkit.get_validator('not_empty'), unicode],
@@ -61,6 +68,7 @@ schema = {
     'created': [p.toolkit.get_validator('ignore_missing'),
                 p.toolkit.get_validator('isodate')],
     'publish_date': [not_empty_if_blog,
+                     convert_date_to_iso,
                      p.toolkit.get_validator('ignore_missing'),
                      p.toolkit.get_validator('isodate')],
 }
