@@ -235,6 +235,16 @@ class PagesPlugin(PagesPluginBase):
             'convert_date_to_iso': actions.convert_date_to_iso
         }
 
+    def update_config_schema(self, schema):
+        ignore_missing = toolkit.get_validator('ignore_missing')
+        #validators = [ignore_missing, unicode]
+
+        schema.update({
+            'homepage_blogs': [bool],
+        })
+
+        return schema
+
 class TextBoxView(p.SingletonPlugin, DefaultTranslation):
     p.implements(p.IConfigurer, inherit=True)
     p.implements(p.IResourceView, inherit=True)

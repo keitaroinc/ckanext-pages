@@ -6,7 +6,9 @@
 
     {% block blogs_wrapper %}
     {% set blogs = h.get_recent_blog_posts(4) %}
-    {% if blogs %}
+
+    {# g.homepage_blogs is returned as String not Boolean! #}
+    {% if g.homepage_blogs == 'True' and blogs %}
     <div class="blogs">
         <div class="container">
             {% block blogs_heading %}
