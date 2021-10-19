@@ -1,0 +1,17 @@
+{% extends 'ckanext_pages/news_edit_base.html' %}
+
+{% block page_primary_action %}
+  {% if h.check_access('ckanext_pages_update', {}) %}
+    {% link_for _('Add Article'), controller='ckanext.pages.controller:PagesController', action='news_edit', page='', class_='btn btn-primary', icon='plus-square' %}
+  {% endif %}
+{% endblock %}
+
+{% block primary_content_inner %}
+  <h1 class="hide-heading">{{ _('News') }}</h1>
+  {% snippet 'ckanext_pages/snippets/pages_list.html', pages=c.page.items, type='news' %}
+  {{ c.page.pager() }}
+{% endblock %}
+
+{% block primary_content %}
+  {{ super() }}
+{% endblock %}

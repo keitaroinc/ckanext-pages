@@ -11,6 +11,8 @@
 
 {% if type == 'blog' %}
   <h2>{{ _('Blog') }}</h2>
+{% elif type == 'news' %}
+  <h2>{{ _('News') }}</h2>
 {% else %}
  <h2>{{ _('Pages') }}</h2>
 {% endif %}
@@ -23,6 +25,8 @@
         {% set url = h.url_for(controller='ckanext.pages.controller:PagesController', action=action, id=id, page='/' + page.name) %}
       {% elif type == 'blog' %}
         {% set url = h.url_for(controller='ckanext.pages.controller:PagesController', action='blog_show', page='/' + page.name) %}
+      {% elif type == 'news' %}
+        {% set url = h.url_for(controller='ckanext.pages.controller:PagesController', action='news_show', page='/' + page.name) %}
       {% else %}
         {% set url = h.url_for(controller='ckanext.pages.controller:PagesController', action='pages_show', page='/' + page.name) %}
       {% endif %}
@@ -48,7 +52,11 @@
                 {{ h.markdown_extract(page.content) }}
               {% endif %}
             {% else %}
-              <p class="empty">{{ _('This page currently has no content') }}</p>
+              {% if type == 'blog' or type == 'news' %}
+                <p class="empty">{{ _('This article currently has no content') }}</p>
+              {% else %}
+                <p class="empty">{{ _('This page currently has no content') }}</p>
+              {% endif %}
             {% endif %}
         </div>
       {% else %}
@@ -68,7 +76,11 @@
               {{ h.markdown_extract(page.content) }}
             {% endif %}
           {% else %}
-            <p class="empty">{{ _('This page currently has no content') }}</p>
+            {% if type == 'blog' or type == 'news' %}
+              <p class="empty">{{ _('This article currently has no content') }}</p>
+            {% else %}
+              <p class="empty">{{ _('This page currently has no content') }}</p>
+            {% endif %}
           {% endif %}
         </div>
       {% endif %}
@@ -78,6 +90,8 @@
 {% else %}
     {% if type == 'blog' %}
       <p class="empty">{{ _('There are currently no blog articles here') }}</p>
+    {% elif type == 'news' %}
+      <p class="empty">{{ _('There are currently no news articles here') }}</p>
     {% else %}
       <p class="empty">{{ _('There are currently no pages here') }}</p>
     {% endif %}

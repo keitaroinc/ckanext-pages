@@ -1,9 +1,8 @@
 import cgi
 import logging
 import urllib
-from pylons import config
-import ckan.plugins.toolkit as toolkit
-ignore_missing = toolkit.get_validator('ignore_missing')
+
+import ckan.plugins.toolkit as toolkit, config
 
 import ckan.plugins as p
 import ckan.lib.helpers as h
@@ -20,6 +19,8 @@ else:
         pass
 
 log = logging.getLogger(__name__)
+ignore_missing = toolkit.get_validator('ignore_missing')
+
 
 def build_pages_nav_main(*args):
 
@@ -44,9 +45,12 @@ def build_pages_nav_main(*args):
 
     page_name = ''
 
-    if (toolkit.c.action in ('pages_show', 'blog_show')
-       and toolkit.c.controller == 'ckanext.pages.controller:PagesController'):
-        page_name = toolkit.c.environ['routes.url'].current().split('/')[-1]
+    try:
+        if (p.toolkit.c.action in ('pages_show', 'blog_show', 'news_show')
+           and p.toolkit.c.controller == 'ckanext.pages.controller:PagesController'):
+            page_name = p.toolkit.c.environ['routes.url'].current().split('/')[-1]
+    except AttributeError:
+        pass
 
     for page in pages_list:
         type_ = 'blog' if page['page_type'] == 'blog' else 'pages'
@@ -55,6 +59,8 @@ def build_pages_nav_main(*args):
         link = h.literal(u'<a href="/{}/{}">{}</a>'.format(type_, name, title))
         if page['page_type'] == 'blog':
             link = h.literal('<a href="/blog/%s">%s</a>' % (page['name'], page['title']))
+        elif page['page_type'] == 'news':
+            link = h.literal('<a href="/news/%s">%s</a>' % (page['name'], page['title']))
         else:
             link = h.literal('<a href="/pages/%s">%s</a>' % (page['name'], page['title']))
 
@@ -100,6 +106,20 @@ def get_plus_icon():
     if toolkit.check_ckan_version(min_version='2.7'):
         return 'plus-square'
     return 'plus-sign-alt'
+def get_recent_news_posts(number=5, exclude=None):
+    news_list = p.toolkit.get_action('ckanext_pages_list')(
+        None, {'order_publish_date': True, 'private': False,
+               'page_type': 'news'}
+    )
+    new_list = []
+    for article in news_list:
+        if exclude and article['name'] == exclude:
+            continue
+        new_list.append(article)
+        if len(new_list) == number:
+            break
+
+    return new_list
 
 
 class PagesPlugin(PagesPluginBase):
@@ -138,7 +158,7 @@ class PagesPlugin(PagesPluginBase):
             'render_content': render_content,
             'get_wysiwyg_editor': get_wysiwyg_editor,
             'get_recent_blog_posts': get_recent_blog_posts,
-            'pages_get_plus_icon': get_plus_icon
+            'get_recent_news_posts': get_recent_news_posts,
         }
 
     def after_map(self, map):
@@ -184,6 +204,15 @@ class PagesPlugin(PagesPluginBase):
                     action='blog_index', ckan_icon='file', controller=controller, highlight_actions='blog_edit blog_index blog_show')
         map.connect('blog_show', '/blog{page:/.*|}',
                     action='blog_show', ckan_icon='file', controller=controller, highlight_actions='blog_edit blog_index blog_show')
+
+        map.connect('news_delete', '/news_delete{page:/.*|}',
+                    action='news_delete', ckan_icon='delete', controller=controller)
+        map.connect('news_edit', '/news_edit{page:/.*|}',
+                    action='news_edit', ckan_icon='edit', controller=controller)
+        map.connect('news_index', '/news',
+                    action='news_index', ckan_icon='file', controller=controller, highlight_actions='news_edit news_index news_show')
+        map.connect('news_show', '/news{page:/.*|}',
+                    action='news_show', ckan_icon='file', controller=controller, highlight_actions='news_edit news_index news_show')
         return map
 
 
@@ -248,6 +277,8 @@ class PagesPlugin(PagesPluginBase):
 class TextBoxView(p.SingletonPlugin, DefaultTranslation):
     p.implements(p.IConfigurer, inherit=True)
     p.implements(p.IResourceView, inherit=True)
+    if p.toolkit.check_ckan_version(min_version='2.5.0'):
+        p.implements(p.ITranslation, inherit=True)
 
     def update_config(self, config):
         toolkit.add_resource('textbox/theme', 'textbox')

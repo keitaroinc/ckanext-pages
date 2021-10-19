@@ -298,7 +298,7 @@ class PagesController(p.toolkit.BaseController):
 
     def _pages_list_pages(self, page_type):
         data_dict={'org_id': None, 'page_type': page_type}
-        if page_type == 'blog':
+        if page_type == 'blog' or page_type == 'news':
             data_dict['order_publish_date'] = True
         p.toolkit.c.pages_dict = p.toolkit.get_action('ckanext_pages_list')(
             data_dict=data_dict
@@ -312,6 +312,8 @@ class PagesController(p.toolkit.BaseController):
 
         if page_type == 'blog':
             return p.toolkit.render('ckanext_pages/blog_list.html')
+        elif page_type == 'news':
+            return p.toolkit.render('ckanext_pages/news_list.html')
         return p.toolkit.render('ckanext_pages/pages_list.html')
 
     def blog_delete(self, page):
@@ -400,3 +402,15 @@ class PagesController(p.toolkit.BaseController):
         return """<script type='text/javascript'>
                       window.parent.CKEDITOR.tools.callFunction(%s, '%s');
                   </script>""" % (p.toolkit.request.GET['CKEditorFuncNum'], url['url'])
+
+    def news_index(self):
+        return self._pages_list_pages('news')
+
+    def news_show(self, page=None):
+        return self.pages_show(page, page_type='news')
+
+    def news_delete(self, page):
+        return self.pages_delete(page, page_type='news')
+
+    def news_edit(self, page=None, data=None, errors=None, error_summary=None):
+        return self.pages_edit(page=page, data=data, errors=errors, error_summary=error_summary, page_type='news')
