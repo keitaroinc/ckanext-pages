@@ -1,4 +1,4 @@
-{% resource 'pages-theme/styles/pages.css' %}
+{% asset 'pages/index-css' %}
 {% ckan_extends %}
 
 {% block primary_content %}
@@ -26,12 +26,12 @@
                                 <p class="description">{{ item.content|striptags|truncate(300) }}</p>
                             </div>
                         </div>
-                        <a class="media-view" href="{{ h.url_for(controller='ckanext.pages.controller:PagesController', action='blog_show', page='/' + item.name) }}"></a>
+                        <a class="media-view" href="{{ h.url_for('pages.blog_show', page=page.name) }}"></a>
                     </div>
                 {% endfor %}
             </div>
             {% block blog_archive_button %}
-            <a class="btn btn-large btn-primary btn-view-all" href="{{ h.url_for(action='blog_index', controller='ckanext.pages.controller:PagesController') }}">
+            <a class="btn btn-large btn-primary btn-view-all" href="{{ h.url_for('pages.blog_index') }}">
                 {% block blog_archive_button_text %}
                   {{_("View All")}}
                 {% endblock %}
