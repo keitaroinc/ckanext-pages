@@ -1,4 +1,4 @@
-main-js:
+pages-main-js:
   filters: rjsmin
   output: ckanext-pages/%(version)s_main.js
   extra:
@@ -12,7 +12,7 @@ main-js:
     - js/ckedit.js
     - js/datepicker.js
 
-main-css:
+pages-main-css:
   output: ckanext-pages/%(version)s_main.css
   filters: cssrewrite
   contents:

@@ -136,8 +136,8 @@
   {% if editor == 'medium' %}
     {{ wysiwyg.editor('content', id='field-content', label=_('Content'), placeholder=_('Enter content here'), value=data.content|safe, error=errors.content) }}
   {% elif editor == 'ckeditor' %}
-    {% asset 'pages/main-css' %}
-    {% asset 'pages/main-js' %}
+    {% asset 'pages/pages-main-css' %}
+    {% asset 'pages/pages-main-js' %}
     <div class="form-group">
         <label for="field-content-ck" class="control-label">{{ _('Content') }}</label>
         <textarea id="field-content-ck" name="content" placeholder="{{_('My content')}}" data-module="ckedit" style="height:400px" data-module-site_url="{{ h.dump_json(h.url('/', locale='default', qualified=true)) }}"> {{ data.content }}</textarea>
@@ -170,8 +170,8 @@
       {{ wysiwyg.editor('content', id='field-content', label=_('Content'), placeholder=_('Enter content here'), value=data.content|safe, error=errors.content) }}
     {% elif editor == 'ckeditor' %}
       {% if ckan_29_or_higher %}
-        {% snippet 'ckanext_pages/snippets/pages_' ~ type ~ '.html', name='pages/main-js' %}
-        {% snippet 'ckanext_pages/snippets/pages_' ~ type ~ '.html', name='pages/main-css' %}
+        {% snippet 'ckanext_pages/snippets/pages_' ~ type ~ '.html', name='pages/pages-main-js' %}
+        {% snippet 'ckanext_pages/snippets/pages_' ~ type ~ '.html', name='pages/pages-main-css' %}
       {% else %}
         {% snippet 'ckanext_pages/snippets/pages_' ~ type ~ '.html', name='pages/main' %}
       {% endif %}
