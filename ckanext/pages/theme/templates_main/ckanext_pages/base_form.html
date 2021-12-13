@@ -156,6 +156,11 @@
   {% endblock %}
 
   {% block form_content %}
+
+  {% snippet 'ckanext_pages/snippets/pages_asset.html', name='pages/pages-main-js' %}
+  {% snippet 'ckanext_pages/snippets/pages_asset.html', name='pages/pages-main-css' %}
+
+
     {% set type = 'asset' if h.ckan_version().split('.')[1] | int >= 9 else 'resource' %}
     {% set editor = h.get_wysiwyg_editor() %}
     {% if editor == 'medium' %}

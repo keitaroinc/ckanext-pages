@@ -4,8 +4,8 @@ pages-main-js:
   extra:
     preload:
       - base/main
+      - vendor/ckeditor/adapters/jquery.js
   contents:
-    - vendor/ckeditor/adapters/jquery.js
     - vendor/datepicker/js/bootstrap-datepicker.js
     - vendor/datepicker/locales/bootstrap-datepicker.mk.js
     - vendor/datepicker/locales/bootstrap-datepicker.sq.js

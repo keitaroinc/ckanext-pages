@@ -10,7 +10,7 @@
 
         {% if h.ckan_version().split('.')[1] | int >= 9 %}
 
-          {% snippet 'ckanext_pages/snippets/pages_asset.html', name='pages/main-css' %}
+          {% snippet 'ckanext_pages/snippets/pages_asset.html', name='pages/pages-main-css' %}
 
           {% link_for _('Edit'), named_route='pages.edit', page=c.page.name, class_='btn btn-primary pull-right', icon='edit' %}
         {% else %}
