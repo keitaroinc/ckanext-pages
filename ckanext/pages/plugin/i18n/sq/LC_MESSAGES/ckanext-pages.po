@@ -125,8 +125,7 @@ msgstr "Cilat janë Faqet?"
 
 #: ckanext/pages/theme/templates_main/ckanext_pages/base.html:18
 msgid ""
-" <p>Pages are are simple way to add extra pages to your ckan instance. "
-"You can assign an order to them.</p> "
+"<p>Pages are a simple way to add extra pages to your ckan instance. You can assign an order to them.</p>"
 msgstr ""
 "<p> Faqet janë një mënyrë e thjeshtë për të shtuar faqe shtesë në "
 "instancën tuaj të ckan-it. Ju mund të caktoni një urdhër për ta.</p> "
@@ -278,8 +277,8 @@ msgid "Blog Articles"
 msgstr "Artikuj Blog"
 
 #: ckanext/pages/theme/templates_main/ckanext_pages/blog_edit_base.html:12
-msgid " <p>Add blog articles to CKAN here.</p> "
-msgstr " <p>Shtoni artikuj blogesh tek CKAN-i këtu</p>"
+msgid "<p>Add blog articles to CKAN here.</p>"
+msgstr "<p>Shtoni artikuj blogesh tek CKAN-i këtu</p>"
 
 #: ckanext/pages/theme/templates_main/ckanext_pages/blog_list.html:5
 #: ckanext/pages/theme/templates_main/ckanext_pages/news_list.html:5
@@ -306,8 +305,8 @@ msgid "News Articles"
 msgstr "Artikuj Blog"
 
 #: ckanext/pages/theme/templates_main/ckanext_pages/news_edit_base.html:12
-msgid " <p>Add news articles to CKAN here.</p> "
-msgstr " <p>Shtoni artikuj blogesh tek CKANi këtu</p>"
+msgid "<p>Add news articles to CKAN here.</p>"
+msgstr "<p>Shtoni artikuj blogesh tek CKANi këtu</p>"
 
 #: ckanext/pages/theme/templates_main/ckanext_pages/pages_edit.html:3
 msgid "Edit Page"

@@ -125,8 +125,7 @@ msgstr "Што претставуваат Страници?"
 
 #: ckanext/pages/theme/templates_main/ckanext_pages/base.html:18
 msgid ""
-" <p>Pages are are simple way to add extra pages to your ckan instance. "
-"You can assign an order to them.</p> "
+"<p>Pages are a simple way to add extra pages to your ckan instance. You can assign an order to them.</p>"
 msgstr ""
 " <p>Страниците се едноставен начин за додавање дополнителни страници во "
 "вашата ckan инстанца. Можете да им доделите редослед.</p> "
@@ -278,8 +277,8 @@ msgid "Blog Articles"
 msgstr "Блог-написи"
 
 #: ckanext/pages/theme/templates_main/ckanext_pages/blog_edit_base.html:12
-msgid " <p>Add blog articles to CKAN here.</p> "
-msgstr " <p>Додајте блог-написи на CKAN тука.</p> "
+msgid "<p>Add blog articles to CKAN here.</p>"
+msgstr "<p>Додајте блог-написи на CKAN тука.</p>"
 
 #: ckanext/pages/theme/templates_main/ckanext_pages/blog_list.html:5
 #: ckanext/pages/theme/templates_main/ckanext_pages/news_list.html:5
@@ -306,7 +305,7 @@ msgid "News Articles"
 msgstr "Написи за новости"
 
 #: ckanext/pages/theme/templates_main/ckanext_pages/news_edit_base.html:12
-msgid " <p>Add news articles to CKAN here.</p> "
+msgid "<p>Add news articles to CKAN here.</p>"
 msgstr "Додајте блог-написи на CKAN тука."
 
 #: ckanext/pages/theme/templates_main/ckanext_pages/pages_edit.html:3
