@@ -3,6 +3,7 @@ import logging
 import urllib
 from pylons import config
 import ckan.plugins.toolkit as toolkit
+from bs4 import BeautifulSoup
 ignore_missing = toolkit.get_validator('ignore_missing')
 
 import ckan.plugins as p
@@ -53,11 +54,6 @@ def build_pages_nav_main(*args):
         name = urllib.quote(page['name'].encode('utf-8')).decode('utf-8')
         title = cgi.escape(page['title'])
         link = h.literal(u'<a href="/{}/{}">{}</a>'.format(type_, name, title))
-        if page['page_type'] == 'blog':
-            link = h.literal('<a href="/blog/%s">%s</a>' % (page['name'], page['title']))
-        else:
-            link = h.literal('<a href="/pages/%s">%s</a>' % (page['name'], page['title']))
-
         if page['name'] == page_name:
             li = h.literal('<li class="active">') + link + h.literal('</li>')
         else:
@@ -96,10 +92,35 @@ def get_recent_blog_posts(number=5, exclude=None):
     return new_list
 
 
+def get_recent_pages_posts(number=5, exclude=None):
+    pages_list = toolkit.get_action('ckanext_pages_list')(
+        None, {'order_publish_date': True, 'private': False,
+               'page_type': 'page'}
+    )
+    new_list = []
+    for page in pages_list:
+        if exclude and page['name'] == exclude:
+            continue
+        new_list.append(page)
+        if len(new_list) == number:
+            break
+    return new_list
+
+
 def get_plus_icon():
     if toolkit.check_ckan_version(min_version='2.7'):
         return 'plus-square'
     return 'plus-sign-alt'
+
+
+def strip_script_and_style_from_string(html):
+    """Remove css and js from page contents on results page."""
+    soup = BeautifulSoup(html)
+    for tags in soup(["script", "style"]):
+        tags.extract()
+
+    content = soup.get_text()
+    return content
 
 
 class PagesPlugin(PagesPluginBase):
@@ -109,8 +130,6 @@ class PagesPlugin(PagesPluginBase):
     p.implements(p.IRoutes, inherit=True)
     p.implements(p.IActions, inherit=True)
     p.implements(p.IAuthFunctions, inherit=True)
-    p.implements(p.IValidators)
-
 
     def update_config(self, config):
         self.organization_pages = toolkit.asbool(config.get('ckanext.pages.organization', False))
@@ -138,7 +157,9 @@ class PagesPlugin(PagesPluginBase):
             'render_content': render_content,
             'get_wysiwyg_editor': get_wysiwyg_editor,
             'get_recent_blog_posts': get_recent_blog_posts,
-            'pages_get_plus_icon': get_plus_icon
+            'get_recent_pages_posts': get_recent_pages_posts,
+            'pages_get_plus_icon': get_plus_icon,
+            'strip_script_and_style_from_string': strip_script_and_style_from_string
         }
 
     def after_map(self, map):
@@ -164,7 +185,8 @@ class PagesPlugin(PagesPluginBase):
             map.connect('group_pages', '/group/pages/{id}{page:/.*|}',
                         action='group_show', ckan_icon='file', controller=controller, highlight_actions='group_edit group_show')
 
-
+        map.connect('pages_search', '/pages_search', action='pages_search',
+                    controller=controller)
         map.connect('pages_delete', '/pages_delete{page:/.*|}',
                     action='pages_delete', ckan_icon='delete', controller=controller)
         map.connect('pages_edit', '/pages_edit{page:/.*|}',
@@ -230,22 +252,8 @@ class PagesPlugin(PagesPluginBase):
             'ckanext_group_pages_list': auth.group_pages_list,
        }
 
-    def get_validators(self):
-        return {
-            'convert_date_to_iso': actions.convert_date_to_iso
-        }
+class TextBoxView(p.SingletonPlugin):
 
-    def update_config_schema(self, schema):
-        ignore_missing = toolkit.get_validator('ignore_missing')
-        #validators = [ignore_missing, unicode]
-
-        schema.update({
-            'homepage_blogs': [bool],
-        })
-
-        return schema
-
-class TextBoxView(p.SingletonPlugin, DefaultTranslation):
     p.implements(p.IConfigurer, inherit=True)
     p.implements(p.IResourceView, inherit=True)
 

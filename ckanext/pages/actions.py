@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 import datetime
 import json
 
@@ -13,9 +11,14 @@ try:
     import ckan.authz as authz
 except ImportError:
     import ckan.new_authz as authz
+from ckan.common import _
 
 
 import db
+import re
+
+Invalid = df.Invalid
+
 def page_name_validator(key, data, errors, context):
     session = context['session']
     page = context.get('page')
@@ -28,6 +31,43 @@ def page_name_validator(key, data, errors, context):
     if result:
         errors[key].append(
             p.toolkit._('Page name already exists in database'))
+
+
+name_match = re.compile('[a-z0-9_\-]*$')
+def custom_name_validator(value, context):
+    '''Return the given value if it's a valid name, otherwise raise Invalid.
+
+    If it's a valid name, the given value will be returned unmodified.
+
+    This function applies general validation rules for names of packages,
+    groups, users, etc.
+
+    Most schemas also have their own custom name validator function to apply
+    custom validation rules after this function, for example a
+    ``package_name_validator()`` to check that no package with the given name
+    already exists.
+
+    :raises ckan.lib.navl.dictization_functions.Invalid: if ``value`` is not
+        a valid name
+
+    '''
+    if not isinstance(value, basestring):
+        raise Invalid(_('Names must be strings'))
+
+    # check basic textual rules
+    if value in ['new', 'edit', 'search']:
+        raise Invalid(_('That name cannot be used'))
+
+    if len(value) < 2:
+        raise Invalid(_('Must be at least %s characters long') % 2)
+    if len(value) > 255:
+        raise Invalid(_('Name must be a maximum of %i characters long') % \
+                      255)
+    if not name_match.match(value):
+        raise Invalid(_('Must be purely lowercase alphanumeric '
+                        '(ascii) characters and these symbols: -_'))
+    return value
+
 
 def not_empty_if_blog(key, data, errors, context):
     value = data.get(key)
@@ -44,18 +84,11 @@ class HTMLFirstImage(HTMLParser):
         if tag == 'img' and not self.first_image:
             self.first_image = dict(attrs)['src']
 
-def convert_date_to_iso(key, data, errors, context):
-    if data[key]:
-        try:
-            data[key] = datetime.datetime.strptime(data[key], '%d-%m-%Y').strftime('%Y-%m-%d')
-        except:
-            pass
-
 schema = {
     'id': [p.toolkit.get_validator('ignore_empty'), unicode],
     'title': [p.toolkit.get_validator('not_empty'), unicode],
     'name': [p.toolkit.get_validator('not_empty'), unicode,
-             p.toolkit.get_validator('name_validator'), page_name_validator],
+             custom_name_validator, page_name_validator],
     'content': [p.toolkit.get_validator('ignore_missing'), unicode],
     'page_type': [p.toolkit.get_validator('ignore_missing'), unicode],
   #  'lang': [p.toolkit.get_validator('not_empty'), unicode],
@@ -68,7 +101,6 @@ schema = {
     'created': [p.toolkit.get_validator('ignore_missing'),
                 p.toolkit.get_validator('isodate')],
     'publish_date': [not_empty_if_blog,
-                     convert_date_to_iso,
                      p.toolkit.get_validator('ignore_missing'),
                      p.toolkit.get_validator('isodate')],
 }

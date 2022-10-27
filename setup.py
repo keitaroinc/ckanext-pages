@@ -5,7 +5,6 @@ import os.path
 import re
 
 from setuptools import setup, find_packages
-import os
 
 
 # Extract version
@@ -21,16 +20,6 @@ with io.open(INIT_PY) as f:
 if version is None:
     raise RuntimeError('Could not extract version from "{}".'.format(INIT_PY))
 
-
-# Recurse into package files
-def package_files(directory):
-    paths = []
-    for (path, directories, filenames) in os.walk(directory):
-        for filename in filenames:
-            paths.append(os.path.join('..', path, filename))
-    return paths
-
-i18n_files = package_files('ckanext/pages/i18n')
 
 setup(
     name='ckanext-pages',
@@ -52,14 +41,14 @@ setup(
     namespace_packages=['ckanext'],
     include_package_data=True,
     package_data={
-            '': ['theme/*/*.html', 'theme/*/*/*.html', 'theme/*/*/*/*.html'] + i18n_files,
+            '': ['theme/*/*.html', 'theme/*/*/*.html', 'theme/*/*/*/*.html'],
     },
     zip_safe=False,
     install_requires=[
         # -*- Extra requirements: -*-
     ],
-	entry_points=\
-	"""
+    entry_points=\
+    """
         [ckan.plugins]
         pages=ckanext.pages.plugin:PagesPlugin
         textboxview=ckanext.pages.plugin:TextBoxView

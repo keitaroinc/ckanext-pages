@@ -9,10 +9,12 @@
 {% endif %}
 #}
 
-{% if type == 'blog' %}
-  <h2>{{ _('Blog') }}</h2>
+{% if q %}
+<h2>{{ pages_total }}{% trans %} results found for {% endtrans %}"{{q}}"</h2>
+{% elif type == 'blog' %}
+  <h2>Blog</h2>
 {% else %}
- <h2>{{ _('Pages') }}</h2>
+ <h2>Pages</h2>
 {% endif %}
 
 {% if pages %}
@@ -26,13 +28,13 @@
       {% else %}
         {% set url = h.url_for(controller='ckanext.pages.controller:PagesController', action='pages_show', page='/' + page.name) %}
       {% endif %}
-      <div class="page-list-item dataset-item row">
+      <div class="row page-list-item dataset-item">
       {% if page.image %}
-        <div class="col-md-3 image">
+        <div class="span3 image">
           <a style="background-image:url({{ page.image }})" href="{{ url }}">
           </a>
         </div>
-        <div class="col-md-8">
+        <div class="span8">
            <h3 class="dataset-heading">
               <a href="{{ url }}" >{{ page.title }}</a>
               {% if page.publish_date %}
@@ -45,14 +47,14 @@
                 {{page.content|striptags|truncate}}
               </div>
               {% else %}
-                {{ h.markdown_extract(page.content) }}
+                {{ h.markdown_extract(h.strip_script_and_style_from_string(page.content)) }}
               {% endif %}
             {% else %}
               <p class="empty">{{ _('This page currently has no content') }}</p>
             {% endif %}
         </div>
       {% else %}
-        <div class="col-md-11">
+        <div class="span11">
           <h3 class="dataset-heading">
             <a href="{{ url }}" >{{ page.title }}</a>
             {% if page.publish_date %}
@@ -65,7 +67,7 @@
               {{page.content|striptags|truncate}}
             </div>
             {% else %}
-              {{ h.markdown_extract(page.content) }}
+              {{ h.markdown_extract(h.strip_script_and_style_from_string(page.content)) }}
             {% endif %}
           {% else %}
             <p class="empty">{{ _('This page currently has no content') }}</p>

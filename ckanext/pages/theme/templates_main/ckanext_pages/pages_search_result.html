@@ -1,14 +1,12 @@
 {% extends 'ckanext_pages/edit_base.html' %}
 
-{% block subtitle %}{{ _('Edit Page')}} {% endblock %}
-
 {% block primary_content_inner %}
-  {% snippet form_snippet, page=page, data=data, errors=errors %}
+  <h1 class="hide-heading">{{ _('Pages') }}</h1>
+  {% snippet 'ckanext_pages/snippets/pages_list.html', pages=c.page.items, q=q%}
+  {{ c.page.pager() }}
 {% endblock %}
 
 {% block main_content %}
-   {{ self.flash() }}
-   {{ self.toolbar() }}
    <div class="wrapper no-nav">
      {{ self.primary_content() }}
    </div>

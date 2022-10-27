@@ -1,10 +1,10 @@
-# encoding: utf-8
-
 import ckan.plugins as p
 import ckan.lib.helpers as helpers
 from pylons import config
+from ckan.common import _, request, c
 
 _ = p.toolkit._
+
 
 class PagesController(p.toolkit.BaseController):
     controller = 'ckanext.pages.controller:PagesController'
@@ -400,3 +400,22 @@ class PagesController(p.toolkit.BaseController):
         return """<script type='text/javascript'>
                       window.parent.CKEDITOR.tools.callFunction(%s, '%s');
                   </script>""" % (p.toolkit.request.GET['CKEditorFuncNum'], url['url'])
+
+    def pages_search(self):
+        q = c.q = request.params.get('q', u'')
+
+        pages_list = p.toolkit.get_action('ckanext_pages_list')({}, {})
+
+        # convert to lowercase to make search case-insensitive
+        search_result = [page for page in pages_list
+                         if q.lower() in page['title'].lower()
+                         or q.lower() in page['content'].lower()]
+
+        p.toolkit.c.page = helpers.Page(
+            collection=search_result,
+            page=p.toolkit.request.params.get('page', 1),
+            url=helpers.pager_url,
+            items_per_page=21
+        )
+
+        return p.toolkit.render('ckanext_pages/pages_search_result.html', {'q': q})
