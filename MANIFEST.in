@@ -2,3 +2,4 @@ recursive-include    ckanext/pages/textbox        *
 recursive-include    ckanext/pages/theme          *
 recursive-include    ckanext/pages/assets         *
 recursive-include    ckanext/pages/plugin/i18n    *
+recursive-include    ckanext/pages *.html *.json *.js *.less *.css *.mo *.yml *.yaml *.ico *.svg *.gif *.eot *.ttf *.woff *.png *.config *.cfg *.map
