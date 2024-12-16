@@ -1,5 +1,6 @@
 import datetime
 import json
+import sqlalchemy as sa
 
 from ckan import model
 import ckan.plugins as p
@@ -16,6 +17,10 @@ from ckanext.pages.logic.schema import update_pages_schema
 import ckan.authz as authz
 
 from ckanext.pages import db
+
+import logging
+
+log = logging.getLogger(__name__)
 
 
 class HTMLFirstImage(HTMLParser):
@@ -44,6 +49,8 @@ def _pages_list(context, data_dict):
     order_publish_date = data_dict.get('order_publish_date')
     page_type = data_dict.get('page_type')
     private = data_dict.get('private', True)
+    search_query = data_dict.get('q')
+
     if ordered:
         search['order'] = True
     if page_type:
@@ -52,8 +59,12 @@ def _pages_list(context, data_dict):
         search['order_publish_date'] = True
     if not org_id:
         search['group_id'] = None
+
         try:
-            p.toolkit.check_access('ckanext_pages_update', context, data_dict)
+            p.toolkit.check_access(
+                'ckanext_pages_update',
+                context, data_dict
+            )
             if not private:
                 search['private'] = False
         except p.toolkit.NotAuthorized:
@@ -62,29 +73,43 @@ def _pages_list(context, data_dict):
         group = context['model'].Group.get(org_id)
         user = context['user']
         member = authz.has_user_permission_for_group_or_org(
-            group.id, user, 'read')
+            group.id, user, 'read'
+        )
         search['group_id'] = org_id
+
         if not member:
             search['private'] = False
+
+    if search_query:
+        search['q'] = search_query
+
     out = db.Page.pages(**search)
+
     out_list = []
+
     for pg in out:
         parser = HTMLFirstImage()
         parser.feed(pg.content)
         img = parser.first_image
-        pg_row = {'title': pg.title,
-                  'content': pg.content,
-                  'name': pg.name,
-                  'publish_date': pg.publish_date.isoformat() if pg.publish_date else None,
-                  'group_id': pg.group_id,
-                  'page_type': pg.page_type,
-                  }
+        pg_row = {
+            'title': pg.title,
+            'content': pg.content,
+            'name': pg.name,
+            'publish_date': pg.publish_date.isoformat() if pg.publish_date else None,
+            'group_id': pg.group_id,
+            'page_type': pg.page_type,
+        }
+
         if img:
             pg_row['image'] = img
+
         extras = pg.extras
+
         if extras:
             pg_row.update(json.loads(pg.extras))
+
         out_list.append(pg_row)
+
     return out_list
 
 
