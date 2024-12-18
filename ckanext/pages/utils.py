@@ -7,6 +7,12 @@ import ckan.plugins as p
 import ckan.logic as logic
 import ckan.lib.helpers as helpers
 
+import logging
+
+
+log = logging.getLogger(__name__)
+
+
 config = tk.config
 _ = tk._
 
@@ -35,6 +41,12 @@ def _parse_form_data(request):
 
 def pages_list_pages(page_type):
     data_dict = {'org_id': None, 'page_type': page_type}
+    query = tk.request.params.get('q', tk.request.args.get('q', ''))
+
+    if query:
+        data_dict['q'] = query
+        tk.c.q = query
+
     if page_type == 'blog':
         data_dict['order_publish_date'] = True
     tk.c.pages_dict = tk.get_action('ckanext_pages_list')(
@@ -49,6 +61,7 @@ def pages_list_pages(page_type):
 
     if page_type == 'blog':
         return tk.render('ckanext_pages/blog_list.html')
+
     return tk.render('ckanext_pages/pages_list.html')
 
 
